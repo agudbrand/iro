@@ -78,7 +78,7 @@ struct Log
 	b8   init();
 	void deinit();
 
-	void new_destination(str name, io::IO* d, Dest::Flags flags);
+	void newDestination(str name, io::IO* d, Dest::Flags flags);
 };
 
 extern Log log;
@@ -120,7 +120,7 @@ struct Logger
 
 		for (Log::Dest& destination : iro::log.destinations)
 		{
-			write_prefix(v, destination);
+			writePrefix(v, destination);
 			io::formatv(destination.io, args...);
 		}
 	}
@@ -161,7 +161,7 @@ private:
 //		m.close();
 //	}
 
-	void write_prefix(Verbosity v, Log::Dest& destination);
+	void writePrefix(Verbosity v, Log::Dest& destination);
 
 };
 
